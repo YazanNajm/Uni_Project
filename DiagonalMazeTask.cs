@@ -1,4 +1,4 @@
-﻿namespace Mazes
+namespace Mazes
 {
 	public static class DiagonalMazeTask
 	{
@@ -8,11 +8,8 @@
             {
                 for (var i = 0; !robot.Finished; i++)
                 {
-                    if (i % 2 == 0) 
-                    {
-                        for (var j = 0; j < 3; j++)
-                            robot.MoveTo(Direction.Right);
-                    }
+                    if ()
+                         robot.MoveTo(Direction.Right);
                     else
                         robot.MoveTo(Direction.Down);
                     if (robot.Finished)
@@ -23,11 +20,8 @@
             {
                 for (var i = 0; !robot.Finished; i++)
                 {
-                    if (i % 2 == 0)
-                    {
-                        for (var j = 0; j < 2; j++)
-                            robot.MoveTo(Direction.Down);
-                    }
+                    if ()
+                        robot.MoveTo(Direction.Down);
                     else
                         robot.MoveTo(Direction.Right);
                     if (robot.Finished)
