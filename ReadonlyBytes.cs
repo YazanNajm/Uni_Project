@@ -10,6 +10,7 @@ namespace hashes
         public readonly int Length;
         public ReadonlyBytes(params byte[] values)
         {
+            if (values == null) throw new ArgumentNullException();
             arrayByte = values;
             Length = values.Length;
         }
@@ -36,7 +37,7 @@ namespace hashes
         {
             unchecked
             {
-                return Length * 10 + Length * 9 ;
+                return arrayByte[Length]*10 ;
             }
         }
 
