@@ -17,7 +17,6 @@ namespace hashes
         public ReadonlyBytes(params byte[] values)
         {
             arrayByte = values ?? throw new ArgumentNullException();
-            Length = values.Length;
         }
         public int this[int index]
         {
