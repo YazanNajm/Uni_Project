@@ -7,7 +7,17 @@ namespace hashes
     public class ReadonlyBytes : IEnumerable<byte>
     {
         private readonly byte[] arrayByte;
-        private readonly int Length;
+        public int Length
+        {
+            get
+            {
+                return arrayByte.Length;
+            }
+            set
+            {
+               
+            }
+        }
         public ReadonlyBytes(params byte[] values)
         {
             arrayByte = values ?? throw new ArgumentNullException();
