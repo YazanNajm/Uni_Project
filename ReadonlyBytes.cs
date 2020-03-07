@@ -13,10 +13,6 @@ namespace hashes
             {
                 return arrayByte.Length;
             }
-            set
-            {
-               
-            }
         }
         public ReadonlyBytes(params byte[] values)
         {
