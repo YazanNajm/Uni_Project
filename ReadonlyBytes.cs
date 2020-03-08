@@ -25,11 +25,6 @@ namespace hashes
                 if (index < 0 || index >= arrayByte.Length) throw new IndexOutOfRangeException();
                 return arrayByte[index];
             }
-            set
-            {
-                if (index < 0 || index >= arrayByte.Length) throw new IndexOutOfRangeException();
-                arrayByte[index] = (byte)value;
-            }
         }
         public override bool Equals(object obj)
         {
@@ -50,15 +45,16 @@ namespace hashes
         {
             unchecked
             {
-                var fnv_prime = 109951;
+                var fnv_prime = 0x01000193;
                 var hash = 0;
-                for (var i = 0; i < arrayByte.Length; i++)
+                foreach (var element in arrayByte)
                 {
                     hash *= fnv_prime;
-                    hash = (hash ^ arrayByte[i]);
+                    hash = (hash ^ element);
                 }
                 return hash;
             }
+
         }
 
         public IEnumerator<byte> GetEnumerator()
@@ -73,15 +69,17 @@ namespace hashes
         {
             return GetEnumerator();
         }
+
         public override String ToString()
         {
             String result = "[";
             for (var i = 1; i < Length + 1; i++)
             {
+                result += arrayByte[i - 1];
                 if (i == arrayByte.Length)
-                    result += arrayByte[i - 1] + "]";
+                    result += "]";
                 else
-                    result += arrayByte[i - 1] + ", ";
+                    result += ", ";
             }
             return result == "[" ? "[]" : result;
         }
